@@ -7,7 +7,7 @@ function adminMiddleware(req, res, next){
         next(); 
     }else{
 
-        res.send("no tenes permisos")
+        res.send("No tenés permisos")
     }
    
     
