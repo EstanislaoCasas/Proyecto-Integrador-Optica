@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <%- include('partials/head') %>  
+
+<body>
+
+    <div class=container>
+            <%- include('partials/header') %>  
+
+<div class="padre2">
+
+        
+    <div class="Title row">    
+
+           <div class="imagen col-2">
+
+           </div>
+           
+           <div class="nombre col-3">        
+           <h3>Producto</h3>
+           </div>
+           
+           <div class="precio col-2">
+           <h3>PRECIO</h3>    
+           </div>    
+
+           <div class="cantidad col-2">
+                <h3>CANTIDAD</h3>   
+            </div>
+            
+           <div class="total col-2"> 
+            <h3>TOTAL</h3>   
+           </div>    
+
+
+    </div>   
+
+   
+
+    <form name="formulario" method="POST">
+            <input type="hidden" name="" id="citems" value="<%= carritod.length %>">
+            <input type="hidden" name="" id="citems" value="<%= precioTotalc %>">     
+
+   <% for(i = 0; i < carritod.length; i++) { %>
+    <div class="Product<%= i+1 %> row"> 
+
+            <div class="pimagen<%= i+1 %>  col-2">
+            <img src="<%= carritod[i].img1%>" width="100px" height="100px">    
+ 
+            </div>    
+ 
+            <div class="pnombre<%= i+1 %>  col-3">
+            <h4><%= carritod[i].name%></h4>    
+            </div>    
+ 
+ 
+            <div class="dprecio<%= i+1 %>  col-2">
+            <h4><%= carritod[i].price%></h4>   
+            </div> 
+            
+            <div class="ccantidad<%= i+1 %>  col-2">
+                   <input type="hidden" name="preciop" id="preciop<%= i%>" value="<%= carritod[i].price %>">
+                    <input type="hidden" name="pid" value="<%= carritod[i].id %>">
+                    <input type="number" id="cantitadp<%= i%>" name="cantidadp" onChange="newpricep(<%= i%>);" value="<%= carritod[i].cantidad%>">
+
+            </div>
+ 
+            <div class="ttotal<%= i+1 %>  col-2">
+            <h4>Subtotal:$</h4><h4 id="hp<%= i%>"><%= carritod[i].ptotal%></h4>    
+            </div>   
+ 
+      </div> 
+
+ 
+    <% } %>
+
+     
+
+<div class="linea row">
+
+     <div class="linea1 col-7"></div>  
+
+     <div class="tlineal col-2">
+
+       <h4 id="total">TOTAL $<%= precioTotalc %></h4>
+     </div>  
+
+     <div class="tcomprar col-2">
+                
+               <button type="submit" class="btn btn-success" onclick=this.form.action="/carrito/comprar">Comprar</button>
+            </form>  
+     </div>
+
+</div>           
+
+
+
+   </div> 
+
+   <%- include('partials/footer') %>
+
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('partials/head') %>  
+
+<body>
+
+    <div class=container>
+
+        <%- include('partials/header') %>   
+
+        <main>
+            <div>
+                <h2>Nuevo Producto</h2>
+
+                <div id="errores">
+                    <ul ></ul>
+                </div>
+                <% if (typeof errors !== 'undefined') {
+                    errors.map(function (error) { %>
+                        <p><%= error.msg %></p>
+                <% }) // termina el map
+                } // termina el if %>
+
+                <form method="POST" action="/products/create" class="addp">
+                    <label for="nombre">Imagen de portada</label><br>
+                    <input type="text" name="img1" id="img1" class="img1"><br>
+                    <label for="nombre">Imagen 2</label><br>
+                    <input type="text" name="img2" id="img2"><br>
+                    <label for="nombre">Imagen 3</label><br>
+                    <input type="text" name="img3" id="img3"><br>
+
+                    <label for="nombre">Nombre</label><br>
+                    <input type="text" name="name" id="nombre" class="name"><br>
+                    <label for="descripcion">Descripcion</label><br>
+                    <input type="text" name="description" id="description" class="description"><br>
+                    <label for="nombre">Categoria</label><br>
+                    <select name="category">
+
+                            <% for (let i = 0; i < category.length; i++) { %>
+                                <option value="<%= category[i].id %>"><%= category[i].name %></option>
+                                
+                               
+                              
+                           <% } %>
+
+
+                      
+                     </select><br>  
+                    <label for="precio">Precio</label><br>
+                    <input type="number" name="price" id="price"><br>
+
+                     
+                
+                    <label for="color">Marca</label><br>
+                    
+                    <select name="marca">
+
+                            <% for (let i = 0; i < marca.length; i++) { %>
+                                <option value="<%= marca[i].id %>"><%= marca[i].name %></option>
+                                
+                               
+                              
+                           <% } %>
+
+
+                      
+                     </select><br> 
+                    <br>
+                    <button class="btn btn-dark" type="submit">Agregar Producto</button>
+                </form>
+            </div>
+        </main>
+
+    </div>
+
+    <%- include('partials/footer') %>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<div class="header-container">
+
+    <header>
+        <div class="logo-title">
+            <div class="logo">
+                <a href="home.html">
+                    <img src="/images/logo.png" height="200px">
+                </a>
+            </div>
+            <h2></h2>
+
+        </div>
+        
+        <% if(login == true) { %>
+            <p class="sesion"><a href="/users/logout">Cerrar sesion </a><a href="/users/panel">Panel</a><i class="far fa-user"></i></p>
+        <% } else { %>
+            <p class="sesion"><a href="/users/login">Iniciar sesion </a><a href="/users/register">Crear cuenta </a><i class="far fa-user"></i></p>
+        <% } %>
+    
+        
+        <div class="buscador-carrito row">
+            <form class="form-inline my-2 my-lg-0" method="GET" action="/products/search">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="buscar">
+                <input type="submit" value="Buscar"> 
+            </form>
+            <a href="/carrito/view" class="carrito"><i class="fas fa-shopping-cart fa-2x col-sm-12 col-md-2"></i></a>
+        </div>
+        <div class="nav-container">
+
+            <ul class="nav-bar row">
+                <li class="col-12 col-md-3"><a href="/">Home</a></li>
+                <li class="col-12 col-md-3"><a href="/products/categoria/1">Lentes de sol</a></li>
+                <li class="col-12 col-md-3"><a href="/products/categoria/2">Recetados</a></li>
+                <li class="col-12 col-md-3"><a href="/products/categoria/3">Lentes de contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+</div>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <%- include('partials/head') %>  
+
+<body>
+
+    <div class=container>
+            <%- include('partials/header') %>  
+
+<div class="padre2">
+
+        
+    <div class="Title row">    
+
+           <div class="imagen col-2">
+
+           </div>
+           
+           <div class="nombre col-3">        
+           <h3>Pedido numero</h3>
+           </div>
+           
+           <div class="precio col-2">
+           <h3>PRECIO</h3>    
+           </div>    
+
+           <div class="cantidad col-2">
+                <h3>ITEMS</h3>   
+            </div>
+            
+           <div class="total col-2"> 
+            <h3>Estado</h3>   
+           </div>    
+
+
+    </div>   
+
+   
+
+    <form name="formulario" method="POST">
+            
+   <% for(i = 0; i < pedidos.length; i++) { %>
+    <div class="Product<%= i+1 %> row"> 
+
+               
+        <div class="pimagen<%= i+1 %>  col-2">
+                
+            <button type="submit" class="btn btn-success" onclick=this.form.action="/">Ver detalle</button>
+            </div>  
+
+            <div class="pnombre<%= i+1 %>  col-3">
+            <h4><%= pedidos[i].id%></h4>    
+            </div>    
+ 
+ 
+            <div class="dprecio<%= i+1 %>  col-2">
+            <h4><%= pedidos[i].precio_total%></h4>   
+            </div> 
+            
+            <div class="ccantidad<%= i+1 %>  col-2">
+                   
+                    <p><%= pedidos[i].c_items%></p>
+
+            </div>
+ 
+            <div class="ttotal<%= i+1 %>  col-2">
+            <h4>Pendiente</h4><h4 id="hp<%= i%>"></h4>    
+            </div>   
+ 
+      </div> 
+
+ 
+    <% } %>
+
+     
+          
+
+
+
+   </div> 
+
+   <%- include('partials/footer') %>
+
+
+
+</div>
+</body>
+</html>
